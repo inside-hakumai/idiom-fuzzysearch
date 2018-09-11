@@ -7,12 +7,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./web/views:/app/views
-      - ./web/routes:/app/routes
-      - ./web/public:/app/public
       - ./web/bin:/app/bin
       - ./web/src:/app/src
-      - ./web/app.ts:/app/app.ts
       - ./web/tsconfig.json:/app/tsconfig.json
 
   db:
