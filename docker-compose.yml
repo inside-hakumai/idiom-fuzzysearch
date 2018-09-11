@@ -6,6 +6,12 @@ services:
     build: web/
     ports:
       - "3000:3000"
+    volumes:
+      - ./web/views:/app/views
+      - ./web/routes:/app/routes
+      - ./web/public:/app/public
+      - ./web/bin:/app/bin
+      - ./web/app.js:/app/app.js
 
   db:
     build: db/
