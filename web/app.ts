@@ -1,4 +1,5 @@
 import {Request, Response, NextFunction} from "express";
+import {CompletionDec} from "comp-dec";
 
 var createError = require('http-errors');
 var express = require('express');
