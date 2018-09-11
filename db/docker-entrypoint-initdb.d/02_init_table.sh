@@ -7,7 +7,4 @@ CREATE TABLE idioms (
   name TEXT NOT NULL,
   yomi TEXT NOT NULL
 );
-
-INSERT INTO idioms(name, yomi) VALUES('公序良俗', 'こうじょりょうぞく');
-INSERT INTO idioms(name, yomi) VALUES('a', 'b');
 EOSQL
