@@ -1,3 +1,6 @@
+import {Request, Response, NextFunction} from "express";
+import {CompletionDec} from "comp-dec";
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -11,7 +14,8 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -23,12 +27,12 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use((req:Request, res:Response, next:NextFunction) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(err:CompletionDec.Error, req:Request, res:Response, next:NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

@@ -6,6 +6,10 @@ services:
     build: web/
     ports:
       - "3000:3000"
+    volumes:
+      - ./web/bin:/app/bin
+      - ./web/src:/app/src
+      - ./web/tsconfig.json:/app/tsconfig.json
 
   db:
     build: db/
