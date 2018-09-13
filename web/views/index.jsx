@@ -9,8 +9,19 @@ class Index extends React.Component {
         <link rel='stylesheet' href='/stylesheets/style.css'/>
       </head>
       <body>
+      <div className="site-wrapper">
+        <div className="content-wrapper">
+          <div className="branding-wrapper">
+            <p>idiom-fuzzysearch.net</p>
+          </div>
+          <div className="searchbox-wrapper">
+            <input type="text"/>
+          </div>
+        </div>
+      </div>
       <h1>{this.props.title}</h1>
       <p>Welcome to {this.props.title}</p>
+      <script src='./script.js'></script>
       </body>
       </html>
     );

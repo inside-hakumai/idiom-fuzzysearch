@@ -10,7 +10,10 @@ services:
       - "3000:3000"
     volumes:
       - ./web/bin:/app/bin
-      - ./web/src:/app/src
+      - ./web/public:/app/public
+      - ./web/routes:/app/routes
+      - ./web/views:/app/views
+      - ./web/app.ts:/app/app.ts
       - ./web/tsconfig.json:/app/tsconfig.json
 
   db:
