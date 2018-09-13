@@ -10,8 +10,10 @@ WORKDIR $APP_ROOT
 COPY package.json $APP_ROOT
 RUN npm install && npm cache clean --force
 
-# 開発環境ではdocker-composeのVOLUMESの設定でこのディレクトリをマウントして作業
-# COPY . $APP_ROOT
+# development環境ではdocker-composeのVOLUMESの設定で$APP_ROOTにマウントするため無意味
+COPY . $APP_ROOT
 
+# production環境(heroku)では無視される
 EXPOSE 3000
+
 CMD ["npm", "start"]
