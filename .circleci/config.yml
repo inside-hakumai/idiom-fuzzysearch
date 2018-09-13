@@ -30,13 +30,13 @@ jobs:
     - run:
         name: install dependencies
         command: |
-          python3 -m venv venv
-          . venv/bin/activate
+          python3 -m venv .venv
+          . .venv/bin/activate
           pip install -r .circleci/requirements.txt
 
     - save_cache:
         paths:
-        - ./venv
+        - ./.venv
         key: v1-dependencies-{{ checksum ".circleci/requirements.txt" }}
 
     - run:
@@ -46,6 +46,12 @@ jobs:
           sudo apt-get install postgresql -y
           sudo apt-get clean
           sudo rm -rf /var/lib/apt/lists/*
+
+    - run:
+        name: provide idiom dataset
+        command: |
+          DATABASE_URL=$(heroku config:get DATABASE_URL -a your-app)
+          python .circleci/provision.py
 
     # run tests!
     # this example uses Django's built-in test-runner
