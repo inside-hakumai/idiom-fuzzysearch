@@ -48,9 +48,15 @@ jobs:
           sudo rm -rf /var/lib/apt/lists/*
 
     - run:
+        name: install/setup heroku CLI tool
+        command: |
+          curl https://cli-assets.heroku.com/install.sh | sudo sh
+
+    - run:
         name: provide idiom dataset
         command: |
-          DATABASE_URL=$(heroku config:get DATABASE_URL -a your-app)
+          export DATABASE_URL=$(heroku config:get DATABASE_URL --app $HEROKU_APP_NAME)
+          . .venv/bin/activate
           python .circleci/provision.py
 
     # run tests!

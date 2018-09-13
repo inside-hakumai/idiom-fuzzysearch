@@ -7,7 +7,7 @@ import psycopg2
 
 from typing import List, Dict
 
-FILE_DIR = os.getcwd()
+FILE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 if __name__ == "__main__":
     DATABASE_URL = os.getenv("DATABASE_URL")
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     conn = psycopg2.connect(DATABASE_URL)
     cur = conn.cursor()
 
-    cur.execute("DROP TABLE idioms;")
+    cur.execute("DROP TABLE IF EXISTS idioms;")
     cur.execute("CREATE TABLE idioms ("
                 "id   SERIAL PRIMARY KEY,"
                 "name TEXT NOT NULL,"
