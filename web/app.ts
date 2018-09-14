@@ -23,6 +23,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routing materilze-css css/js
+app.use('/dist-css/materialize', express.static(path.join(__dirname, 'node_modules/materialize-css/dist/css')));
+app.use('/dist-js/materialize', express.static(path.join(__dirname, 'node_modules/materialize-css/dist/js')));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

@@ -6,6 +6,7 @@ class Index extends React.Component {
       <html>
       <head>
         <title>{this.props.title}</title>
+        <link rel='stylesheet' href='/dist-css/materialize/materialize.css'/>
         <link rel='stylesheet' href='/stylesheets/style.css'/>
       </head>
       <body>
@@ -21,7 +22,7 @@ class Index extends React.Component {
       </div>
       <h1>{this.props.title}</h1>
       <p>Welcome to {this.props.title}</p>
-      <script src='./script.js'></script>
+      <script src='/dist-js/materialize/materialize.min.js'></script>
       </body>
       </html>
     );
