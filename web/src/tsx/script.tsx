@@ -1,6 +1,9 @@
+import 'materialize-css';
+import 'whatwg-fetch';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {ChangeEvent} from "react";
+import {SearchResult} from './search-result';
 
 const domRoot = document.querySelector("#root");
 
@@ -21,8 +24,11 @@ class Root extends React.Component<Props, State> {
     this.updateQueryValue = this.updateQueryValue.bind(this);
   }
 
-  updateQueryValue(event:ChangeEvent<HTMLInputElement>) {
-    console.log(event);
+  async updateQueryValue(event:ChangeEvent<HTMLInputElement>) {
+    this.setState({queryValue:event.target.value});
+    const searchRes: Response = await fetch('/search');
+    const resText = await searchRes.text();
+    console.log(resText);
   }
 
   render() {
@@ -35,6 +41,7 @@ class Root extends React.Component<Props, State> {
         <div className="searchbox-wrapper">
           <input type="text" value={this.state.queryValue} onChange={this.updateQueryValue} />
         </div>
+        <SearchResult />
       </div>
     );
   }
