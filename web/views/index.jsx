@@ -1,8 +1,8 @@
 import * as React from "react";
 
 class Index extends React.Component {
-  render() {
-    return (
+
+  render() {return (
       <html>
       <head>
         <title>{this.props.title}</title>
@@ -10,19 +10,14 @@ class Index extends React.Component {
         <link rel='stylesheet' href='/stylesheets/style.css'/>
       </head>
       <body>
-      <div className="site-wrapper">
-        <div className="content-wrapper">
-          <div className="branding-wrapper">
-            <p>idiom-fuzzysearch.net</p>
-          </div>
-          <div className="searchbox-wrapper">
-            <input type="text"/>
-          </div>
-        </div>
+
+      <div id="root" className="site-wrapper">
       </div>
+      {/*
       <h1>{this.props.title}</h1>
       <p>Welcome to {this.props.title}</p>
-      <script src='/dist-js/materialize/materialize.min.js'></script>
+      */}
+      <script src='/javascripts/bundle.js'></script>
       </body>
       </html>
     );
