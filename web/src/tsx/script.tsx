@@ -25,10 +25,11 @@ class Root extends React.Component<Props, State> {
   }
 
   async updateQueryValue(event:ChangeEvent<HTMLInputElement>) {
-    this.setState({queryValue:event.target.value});
-    const searchRes: Response = await fetch('/search');
-    const resText = await searchRes.text();
-    console.log(resText);
+    const queryString = event.target.value;
+    this.setState({queryValue: queryString});
+    const searchRes: Response = await fetch(`/search?query=${queryString}`);
+    const resJson = await searchRes.json();
+    console.log(resJson);
   }
 
   render() {
