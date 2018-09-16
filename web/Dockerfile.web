@@ -2,7 +2,7 @@ FROM node:8.11
 
 LABEL maintainer = "inside-hakumai <inside.rice164@gmail.com>"
 
-ARG env
+ARG env="production"
 
 ENV APP_ROOT "/app"
 ENV NODE_ENV "${env}"
