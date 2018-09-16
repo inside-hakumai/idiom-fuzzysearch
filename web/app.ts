@@ -14,7 +14,9 @@ const searchRouter = require('./routes/search');
 var app = express();
 
 import idiomDB from './server/database';
-idiomDB.connect().then(() => {
+idiomDB.connect().then(async () => {
+
+  await idiomDB.fetchAllEntries();
 
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));

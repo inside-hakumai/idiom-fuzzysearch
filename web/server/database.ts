@@ -1,11 +1,18 @@
 require('dotenv').config();
 import {Client} from 'pg';
 
+interface IdiomEntity {
+  name: string;
+  yomi: string;
+}
+
 class IdiomDB {
   client: Client|null;
+  idioms: IdiomEntity[];
 
   constructor() {
     this.client = null;
+    this.idioms = [];
   }
 
   // todo リトライ処理，もうちょっとうまく書けないか
@@ -25,10 +32,11 @@ class IdiomDB {
     throw new Error('Failed to connect with idiom server.');
   }
 
-  async getAllEntries() {
+  async fetchAllEntries() {
     if (this.client !== null) {
       const res = await this.client.query('SELECT * FROM idioms');
-      console.log(res.rows[0].message) // Hello world!
+      this.idioms = res.rows;
+      console.log(`Fetched ` + res.rows.length + " idiom entries.");
     }
   }
 
