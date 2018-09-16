@@ -1,9 +1,14 @@
 require('dotenv').config();
 import {Client} from 'pg';
+import * as fuzz from 'fuzzball';
 
 interface IdiomEntity {
   name: string;
   yomi: string;
+}
+
+export interface ResultEntity extends IdiomEntity {
+  distance: number;
 }
 
 class IdiomDB {
@@ -45,6 +50,21 @@ class IdiomDB {
       await this.client.end();
       this.client = null;
     }
+  }
+
+  fuzzySearch(queryString:string): ResultEntity[] {
+    let result:ResultEntity[] = [];
+    for (let i=0; i<this.idioms.length; i++) {
+      const distance = fuzz.distance(queryString, this.idioms[i].name)
+      if (distance < 4) {
+        result.push({
+          name: this.idioms[i].name,
+          yomi: this.idioms[i].yomi,
+          distance: distance
+        });
+      }
+    }
+    return result;
   }
 
 }
