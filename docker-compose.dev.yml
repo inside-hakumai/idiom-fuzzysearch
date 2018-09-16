@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+
+  web:
+    build:
+      context: web/
+      dockerfile: Dockerfile.web
+      args:
+          env: "development"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web/bin:/app/bin
+      - ./web/public:/app/public
+      - ./web/routes:/app/routes
+      - ./web/views:/app/views
+      - ./web/app.ts:/app/app.ts
+      - ./web/tsconfig.json:/app/tsconfig.json
+      - ./web/webpack.common.js:/app/webpack.common.js
+      - ./web/webpack.dev.js:/app/webpack.dev.js
+    container_name: ifs_web_node
+    links:
+      - db
+
+  db:
+    build:
+      context: db/
+      dockerfile: Dockerfile.db
+    ports:
+      - "5432:5432"
+    container_name: ifs_db_psql

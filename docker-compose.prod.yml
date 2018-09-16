@@ -6,12 +6,20 @@ services:
     build:
       context: web/
       dockerfile: Dockerfile.web
+      args:
+          env: "production"
     ports:
       - "3000:3000"
     volumes:
       - ./web/bin:/app/bin
-      - ./web/src:/app/src
+      - ./web/public:/app/public
+      - ./web/routes:/app/routes
+      - ./web/views:/app/views
+      - ./web/app.ts:/app/app.ts
       - ./web/tsconfig.json:/app/tsconfig.json
+    container_name: ifs_web_node
+    links:
+      - db
 
   db:
     build:
@@ -19,3 +27,4 @@ services:
       dockerfile: Dockerfile.db
     ports:
       - "5432:5432"
+    container_name: ifs_db_psql

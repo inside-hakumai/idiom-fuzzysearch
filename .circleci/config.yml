@@ -19,6 +19,7 @@ jobs:
 
     steps:
     - checkout
+    - setup_remote_docker
 
     # Download and cache dependencies
     - restore_cache:
@@ -58,6 +59,13 @@ jobs:
           export DATABASE_URL=$(heroku config:get DATABASE_URL --app $HEROKU_APP_NAME)
           . .venv/bin/activate
           python .circleci/provision.py
+
+    - run:
+        name: Deploy to Heroku
+        command: |
+          heroku container:login
+          heroku container:push web --recursive --app $HEROKU_APP_NAME
+          heroku container:release web --app $HEROKU_APP_NAME
 
     # run tests!
     # this example uses Django's built-in test-runner
