@@ -1,12 +1,8 @@
 let webpack = require('webpack');
 let path = require('path');
 
-const MODE = 'development';
-const enabledSourceMap = (MODE === 'development');
-
 let config = {
   target: 'web',
-  mode: MODE,
   entry:  {
     'root': './src/tsx/script.tsx',
   },
@@ -26,27 +22,7 @@ let config = {
             }
           }
         ],
-      },
-      {
-        test: /\.scss/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              url: true,
-              sourceMap: enabledSourceMap,
-              importLoaders: 2
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: enabledSourceMap,
-            }
-          }
-        ]
-      },
+      }
     ]
   },
   resolve: {
@@ -55,8 +31,7 @@ let config = {
       path.resolve(__dirname, "src/renderer/js"),
     ],
     extensions: ['.js', '.ts', '.tsx', '.jsx']
-  },
-  devtool: 'source-map',
+  }
 };
 
 module.exports = config;

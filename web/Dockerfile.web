@@ -2,21 +2,25 @@ FROM node:8.11
 
 LABEL maintainer = "inside-hakumai <inside.rice164@gmail.com>"
 
+ARG env
+
 ENV APP_ROOT "/app"
-ENV NODE_ENV "development"
+ENV NODE_ENV "${env}"
 ENV DEBUG "idiom-fuzzy-search:*"
 
 WORKDIR $APP_ROOT
-COPY package.json $APP_ROOT
+
+# development環境ではdocker-composeのVOLUMESの設定で$APP_ROOTにマウントするため無意味
+COPY . $APP_ROOT
+
 RUN npm install && \
+    npm install -g webpack webpack-cli webpack-merge typescript ts-loader && \
     npm cache clean --force && \
     apt-get update && \
     apt-get install postgresql -y && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# development環境ではdocker-composeのVOLUMESの設定で$APP_ROOTにマウントするため無意味
-COPY . $APP_ROOT
+    rm -rf /var/lib/apt/lists/* && \
+    npm run webpack:${env}
 
 # production環境(heroku)では無視される
 EXPOSE 3000
