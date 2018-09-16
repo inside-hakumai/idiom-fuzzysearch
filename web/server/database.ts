@@ -3,6 +3,7 @@ import {Client} from 'pg';
 import * as fuzz from 'fuzzball';
 
 interface IdiomEntity {
+  id: number;
   name: string;
   yomi: string;
 }
@@ -58,6 +59,7 @@ class IdiomDB {
       const distance = fuzz.distance(queryString, this.idioms[i].name)
       if (distance < 4) {
         result.push({
+          id:   this.idioms[i].id,
           name: this.idioms[i].name,
           yomi: this.idioms[i].yomi,
           distance: distance

@@ -4,6 +4,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {ChangeEvent} from "react";
 import {SearchResult} from './search-result';
+import {ResultEntity} from "../../server/database";
 
 const domRoot = document.querySelector("#root");
 
@@ -12,6 +13,7 @@ interface Props {
 
 interface State {
   queryValue: string
+  searchResult: ResultEntity[]
 }
 
 class Root extends React.Component<Props, State> {
@@ -19,7 +21,8 @@ class Root extends React.Component<Props, State> {
   constructor(props: Readonly<{}>) {
     super(props);
     this.state = {
-      queryValue: ""
+      queryValue: "",
+      searchResult: []
     };
     this.updateQueryValue = this.updateQueryValue.bind(this);
   }
@@ -29,7 +32,10 @@ class Root extends React.Component<Props, State> {
     this.setState({queryValue: queryString});
     const searchRes: Response = await fetch(`/search?query=${queryString}`);
     const resJson = await searchRes.json();
-    console.log(resJson);
+
+    this.setState({
+      searchResult: resJson
+    });
   }
 
   render() {
@@ -42,7 +48,7 @@ class Root extends React.Component<Props, State> {
         <div className="searchbox-wrapper">
           <input type="text" value={this.state.queryValue} onChange={this.updateQueryValue} />
         </div>
-        <SearchResult />
+        <SearchResult idioms={this.state.searchResult} />
       </div>
     );
   }
