@@ -5,7 +5,7 @@ class Index extends React.Component {
   render() {return (
       <html>
       <head>
-        <title>{this.props.title}</title>
+        <title>idiom-fuzzysearch.net</title>
         <link rel='stylesheet' href='/dist-css/materialize/materialize.css'/>
         <link rel='stylesheet' href='/stylesheets/style.css'/>
       </head>
