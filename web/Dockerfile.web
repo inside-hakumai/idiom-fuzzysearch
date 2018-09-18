@@ -21,7 +21,7 @@ COPY webpack*.js $APP_ROOT/
 RUN npm set progress=false && \
     npm config set registry http://registry.npmjs.org/ && \
     yarn install && \
-    yarn global add webpack webpack-cli webpack-merge typescript ts-loader && \
+    yarn add webpack webpack-cli webpack-merge typescript ts-loader tsconfig-paths-webpack-plugin awesome-typescript-loader && \
     yarn cache clean && \
     apt-get update && \
     apt-get install postgresql -y && \
