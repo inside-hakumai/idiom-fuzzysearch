@@ -8,7 +8,8 @@
       "es2017",
       "dom"
     ],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "types": ["node"]
   },
   "files": [
     "./src/app.ts",

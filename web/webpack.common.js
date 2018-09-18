@@ -7,10 +7,6 @@ let config = {
   entry:  {
     'root': './src/client-tsx/script.tsx',
   },
-  output: {
-    path: __dirname + "/public/javascripts",
-    filename: 'bundle.js'
-  },
   module: {
     rules: [
       {

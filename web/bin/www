@@ -4,7 +4,15 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app;
+if (process.env.NODE_ENV === "development") {
+    app = require('../src/app');
+} else if (process.env.NODE_ENV === "production") {
+    app = require('../dist/app');
+} else {
+    throw new Error("Invalid NODE_ENV value.");
+}
+
 var debug = require('debug')('idiom-fuzzy-search:server');
 var http = require('http');
 

@@ -24,6 +24,8 @@ class IdiomDB {
   // todo リトライ処理，もうちょっとうまく書けないか
   async connect(retry_count=10, interval_ms=5000) {
 
+    console.log(process.env);
+
     for (let i=0; i<retry_count; i++) {
       try {
         this.client = new Client();

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+npm run server-ts-compile
+npm run webpack:production
+cp -r ./src/public/stylesheets ./dist/public/stylesheets
+cp -r ./src/views ./dist/views
