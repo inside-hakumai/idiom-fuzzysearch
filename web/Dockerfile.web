@@ -11,18 +11,25 @@ ENV DEBUG "idiom-fuzzy-search:*"
 WORKDIR $APP_ROOT
 
 # development環境ではdocker-composeのVOLUMESの設定で$APP_ROOTにマウントするため無意味
-COPY . $APP_ROOT
+COPY bin $APP_ROOT/bin
+COPY custom-typings $APP_ROOT/custom-typings
+COPY src $APP_ROOT/src
+COPY package.json $APP_ROOT/
+COPY tsconfig*.json $APP_ROOT/
+COPY webpack*.js $APP_ROOT/
 
-RUN npm install && \
-    npm install -g webpack webpack-cli webpack-merge typescript ts-loader && \
-    npm cache clean --force && \
+RUN npm set progress=false && \
+    npm config set registry http://registry.npmjs.org/ && \
+    yarn install && \
+    yarn global add webpack webpack-cli webpack-merge typescript ts-loader && \
+    yarn cache clean && \
     apt-get update && \
     apt-get install postgresql -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    npm run webpack:${env}
+    bash ./bin/build
 
 # production環境(heroku)では無視される
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
