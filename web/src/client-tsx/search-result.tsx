@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ResultEntity} from "../../server/database";
+import {ResultEntity} from "../server/database";
 
 interface Props {
   idioms: ResultEntity[]
