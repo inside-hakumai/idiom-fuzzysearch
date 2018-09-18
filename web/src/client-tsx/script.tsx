@@ -4,7 +4,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {ChangeEvent} from "react";
 import {SearchResult} from './search-result';
-import {ResultEntity} from "../../server/database";
+import {ResultEntity} from "../server/database";
 
 const domRoot = document.querySelector("#root");
 

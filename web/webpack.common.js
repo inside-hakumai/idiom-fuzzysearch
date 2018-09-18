@@ -1,14 +1,11 @@
 let webpack = require('webpack');
 let path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 let config = {
   target: 'web',
   entry:  {
-    'root': './src/tsx/script.tsx',
-  },
-  output: {
-    path: __dirname + "/public/javascripts",
-    filename: 'bundle.js'
+    'root': './src/client-tsx/script.tsx',
   },
   module: {
     rules: [
@@ -16,21 +13,19 @@ let config = {
         test: /\.tsx$/,
         use: [
           {
-            loader: 'ts-loader',
+            loader: 'awesome-typescript-loader',
             options: {
-              allowTsInNodeModules: true
-            }
+              configFileName: 'tsconfig.client.json'
+            },
           }
         ],
       }
     ]
   },
   resolve: {
-    modules: [
-      "node_modules",
-      path.resolve(__dirname, "src/renderer/js"),
-    ],
-    extensions: ['.js', '.ts', '.tsx', '.jsx']
+    modules: ["node_modules"],
+    extensions: ['.js', '.ts', '.tsx', '.jsx'],
+    plugins: [new TsconfigPathsPlugin({configFile: "./tsconfig.client.json"})]
   }
 };
 

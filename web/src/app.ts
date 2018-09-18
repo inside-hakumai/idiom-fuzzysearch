@@ -30,7 +30,7 @@ idiomDB.connect().then(async () => {
   app.use(express.static(path.join(__dirname, 'public')));
 
   // routing materilze-css css
-  app.use('/dist-css/materialize', express.static(path.join(__dirname, 'node_modules/materialize-css/dist/css')));
+  app.use('/dist-css/materialize', express.static(path.join(__dirname, '../node_modules/materialize-css/dist/css')));
 
   app.use('/', indexRouter);
   app.use('/users', usersRouter);
