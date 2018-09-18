@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "webpack:development": "webpack --config ./webpack.dev.js --display-error-details",
-    "webpack:production": "webpack --config ./webpack.prod.js --display-error-details",
+    "webpack:development": "npx webpack --config ./webpack.dev.js --display-error-details",
+    "webpack:production": "npx webpack --config ./webpack.prod.js --display-error-details",
     "webpack:dev-watch": "npx webpack --config ./webpack.dev.js --watch",
     "server-ts-compile": "npx tsc --project ./tsconfig.server.json",
     "start": "npm run start:`echo $NODE_ENV`",
