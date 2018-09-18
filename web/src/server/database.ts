@@ -24,11 +24,11 @@ class IdiomDB {
   // todo リトライ処理，もうちょっとうまく書けないか
   async connect(retry_count=10, interval_ms=5000) {
 
-    console.log(process.env);
-
     for (let i=0; i<retry_count; i++) {
       try {
-        this.client = new Client();
+        this.client = new Client({
+          connectionString: process.env.DATABASE_URL
+        });
         await this.client.connect();
         console.log(`Connect with idiom server.`);
         return;
