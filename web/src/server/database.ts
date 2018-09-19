@@ -9,16 +9,18 @@ interface IdiomEntity {
 }
 
 export interface ResultEntity extends IdiomEntity {
-  distance: number;
+  score: number;
 }
 
 class IdiomDB {
   client: Client|null;
   idioms: IdiomEntity[];
+  idiomStrings: string[];
 
   constructor() {
     this.client = null;
     this.idioms = [];
+    this.idiomStrings = [];
   }
 
   // todo リトライ処理，もうちょっとうまく書けないか
@@ -44,6 +46,7 @@ class IdiomDB {
     if (this.client !== null) {
       const res = await this.client.query('SELECT * FROM idioms');
       this.idioms = res.rows;
+      this.idiomStrings = res.rows.map(entry => entry.name);
       console.log(`Fetched ` + res.rows.length + " idiom entries.");
     }
   }
@@ -56,17 +59,20 @@ class IdiomDB {
   }
 
   fuzzySearch(queryString:string): ResultEntity[] {
+    // [choice, score, index]
+    let results:Array<[string, number, number]> = fuzz.extract(queryString, this.idiomStrings);
+    let suggestion:Array<[string, number, number]> = results.filter(res => res[1]>0);
+
     let result:ResultEntity[] = [];
-    for (let i=0; i<this.idioms.length; i++) {
-      const distance = fuzz.distance(queryString, this.idioms[i].name)
-      if (distance < 4) {
-        result.push({
-          id:   this.idioms[i].id,
-          name: this.idioms[i].name,
-          yomi: this.idioms[i].yomi,
-          distance: distance
-        });
-      }
+    for (let i=0; i<suggestion.length; i++) {
+      const targetIndex = suggestion[i][2];
+      const targetScore = suggestion[i][1];
+      result.push({
+        id:   this.idioms[targetIndex].id,
+        name: this.idioms[targetIndex].name,
+        yomi: this.idioms[targetIndex].yomi,
+        score: targetScore
+      });
     }
     return result;
   }
