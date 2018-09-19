@@ -10,9 +10,11 @@ router.get('/', function(req:Request, res:Response, next:NextFunction) {
 
   const searchResult: ResultEntity[] = idiomDB.fuzzySearch(req.query.query);
 
+  /*
   searchResult.sort((search1:ResultEntity, search2:ResultEntity) => {
     return search1.distance - search2.distance
   });
+  */
 
   res.json(searchResult);
 });

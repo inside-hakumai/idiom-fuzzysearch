@@ -17,7 +17,7 @@ export class SearchResult extends React.Component<Props, State> {
     let list:JSX.Element[] = [];
     for (let i=0; i<this.props.idioms.length; i++) {
       list.push(<li key={this.props.idioms[i].id} className="collection-item">
-        {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）
+        {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）- ({this.props.idioms[i].score})
       </li>);
     }
 
