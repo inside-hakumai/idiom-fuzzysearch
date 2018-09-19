@@ -11,7 +11,7 @@ class Index extends React.Component {
       </head>
       <body>
 
-      <div id="root" className="site-wrapper">
+      <div id="root" className="site-wrapper container">
       </div>
       {/*
       <h1>{this.props.title}</h1>
