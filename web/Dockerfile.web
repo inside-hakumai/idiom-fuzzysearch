@@ -27,7 +27,7 @@ RUN npm set progress=false && \
     apt-get install postgresql -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    bash ./bin/build
+    bash ./bin/build-${env}
 
 # production環境(heroku)では無視される
 EXPOSE 3000
