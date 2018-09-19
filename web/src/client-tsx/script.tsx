@@ -33,6 +33,8 @@ class Root extends React.Component<Props, State> {
     const searchRes: Response = await fetch(`/search?query=${queryString}`);
     const resJson = await searchRes.json();
 
+    console.log(resJson);
+
     this.setState({
       searchResult: resJson
     });
@@ -44,6 +46,7 @@ class Root extends React.Component<Props, State> {
       <div className="content-wrapper">
         <div className="branding-wrapper">
           <p>idiom-fuzzysearch.net</p>
+          <p>「あの四字熟語、なんだったっけ・・・？」とお困りのあなたへ</p>
         </div>
         <div className="searchbox-wrapper">
           <input type="text" value={this.state.queryValue} onChange={this.updateQueryValue} />
