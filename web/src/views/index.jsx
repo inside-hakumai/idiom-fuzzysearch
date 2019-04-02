@@ -6,12 +6,10 @@ class Index extends React.Component {
       <html>
       <head>
         <title>idiom-fuzzysearch.net</title>
-        <link rel='stylesheet' href='/dist-css/materialize/materialize.css'/>
-        <link rel='stylesheet' href='/stylesheets/style.css'/>
       </head>
       <body>
 
-      <div id="root" className="site-wrapper">
+      <div id="root" className="site-wrapper container">
       </div>
       {/*
       <h1>{this.props.title}</h1>
