@@ -7,6 +7,7 @@ import {ChangeEvent} from "react";
 import {SearchResult} from './search-result';
 import {ResultEntity} from "../server/database";
 
+import 'normalize.css';
 import "../public/stylesheets/style.scss";
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
