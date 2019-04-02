@@ -102,6 +102,11 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
+"@types/vivus@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@types/vivus/-/vivus-0.4.0.tgz#902f718f896fd1d8bdc337f7888bdc926dc9fffb"
+  integrity sha1-kC9xj4lv0di9wzf3iIvckm3J//s=
+
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.8.5.tgz#51b1c5fe6576a34953bf4b253df9f0d490d9e359"
@@ -4722,6 +4727,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
+
+vivus@^0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/vivus/-/vivus-0.4.4.tgz#34363eb833d5f6fe0b63a92cfccff14ad099ba44"
+  integrity sha1-NDY+uDPV9v4LY6ks/M/xStCZukQ=
 
 vm-browserify@0.0.4:
   version "0.0.4"
