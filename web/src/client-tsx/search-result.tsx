@@ -14,20 +14,42 @@ export class SearchResult extends React.Component<Props, State> {
   }
 
   render() {
-    let list:JSX.Element[] = [];
+    let perfectMatch:JSX.Element|null = null;
+    let fuzzyMatchList:JSX.Element[] = [];
     for (let i=0; i<this.props.idioms.length; i++) {
-      list.push(<li key={this.props.idioms[i].id} className="collection-item">
+      let targetDom:JSX.Element = <li key={this.props.idioms[i].id} className="collection-item">
         {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）- ({this.props.idioms[i].score})
-      </li>);
+      </li>;
+
+      if (this.props.idioms[i].score === 100) {
+        perfectMatch = targetDom;
+      } else {
+        fuzzyMatchList.push(<li key={this.props.idioms[i].id} className="collection-item">
+          {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）- ({this.props.idioms[i].score})
+        </li>);
+      }
     }
 
     return (
       <div id='result-wrapper'>
         {(() => {
-          if (list.length !== 0) {
-            return <ul className="collection">
-              {list}
-            </ul>
+          if (perfectMatch !== null) {
+            return <div className='result-section' id='result-perfect-match'>
+              <div className='label'><span>完全一致</span></div>
+              <ul className="collection">
+                {perfectMatch}
+              </ul>
+            </div>
+          }
+        })()}
+        {(() => {
+          if (fuzzyMatchList.length !== 0) {
+            return <div className='result-section' id='result-fuzzy-match'>
+              <div className='label'><span>もしかして</span></div>
+              <ul className="collection">
+                {fuzzyMatchList}
+              </ul>
+            </div>
           }
         })()}
       </div>
