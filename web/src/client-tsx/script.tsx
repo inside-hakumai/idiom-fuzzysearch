@@ -7,6 +7,10 @@ import {ChangeEvent} from "react";
 import {SearchResult} from './search-result';
 import {ResultEntity} from "../server/database";
 
+import "../public/stylesheets/style.scss";
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.min.css';
+
 const domRoot = document.querySelector("#root");
 
 interface Props {
