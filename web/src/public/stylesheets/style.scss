@@ -1,7 +1,9 @@
 body {
   background: #fafafa;
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  padding: calc((100vh - 400px)/2) 50px;
 
   a {
     color: #00B7FF;
@@ -14,26 +16,149 @@ body {
   div.result-section {
     margin-top: 1.5em;
   }
+  div.content-wrapper {
+    padding-bottom: 100px;
 
-  div#logo-wrapper {
-    text-align: center;
-  }
-  
-  mask#clipmask {
-    .st0{display:none;}
-    .st1{display:inline;}
-    .st2{stroke:#F2F2F2;stroke-width:7;stroke-linecap:round;stroke-miterlimit:10;}
-    .st3{stroke:#F2F2F2;stroke-width:6.5;stroke-linecap:round;stroke-miterlimit:10;}
-    .st4{stroke:#F2F2F2;stroke-width:17;stroke-linecap:round;stroke-miterlimit:10;}
-    .st5{stroke:#F2F2F2;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;}
-    .st6{fill:none;stroke:#F2F2F2;stroke-width:6;stroke-linecap:round;stroke-miterlimit:10;}
-    .st7{fill:none;stroke:#F2F2F2;stroke-width:7;stroke-linecap:round;stroke-miterlimit:10;}
-    .st8{fill:none;stroke:#F2F2F2;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;}
-    .st9{fill:none;stroke:#F2F2F2;stroke-width:4.1;stroke-linecap:round;stroke-miterlimit:10;}
-    .st10{fill:none;stroke:#F2F2F2;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
-    .st11{fill:none;stroke:#F2F2F2;stroke-width:8;stroke-linecap:round;stroke-miterlimit:10;}
-    .st12{fill:none;stroke:#F2F2F2;stroke-width:9;stroke-linecap:round;stroke-miterlimit:10;}
-    .st13{fill:none;stroke:#F2F2F2;stroke-width:11;stroke-linecap:round;stroke-miterlimit:10;}
+    div.branding-wrapper {
+      margin-bottom: 100px;
+
+      div#logo-wrapper {
+        text-align: center;
+        height: 100px;
+        position: relative;
+
+        svg#svg-animation {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+
+          mask#clipmask {
+
+            .st0 {
+              display: none;
+            }
+
+            .st1 {
+              display: inline;
+            }
+
+            .st2 {
+              stroke: #F2F2F2;
+              stroke-width: 7;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st3 {
+              stroke: #F2F2F2;
+              stroke-width: 6.5;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st4 {
+              stroke: #F2F2F2;
+              stroke-width: 17;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st5 {
+              stroke: #F2F2F2;
+              stroke-width: 5;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st6 {
+              fill: none;
+              stroke: #F2F2F2;
+              stroke-width: 6;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st7 {
+              fill: none;
+              stroke: #F2F2F2;
+              stroke-width: 7;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st8 {
+              fill: none;
+              stroke: #F2F2F2;
+              stroke-width: 5;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st9 {
+              fill: none;
+              stroke: #F2F2F2;
+              stroke-width: 4.1;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st10 {
+              fill: none;
+              stroke: #F2F2F2;
+              stroke-width: 4;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st11 {
+              fill: none;
+              stroke: #F2F2F2;
+              stroke-width: 8;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st12 {
+              fill: none;
+              stroke: #F2F2F2;
+              stroke-width: 9;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+
+            .st13 {
+              fill: none;
+              stroke: #F2F2F2;
+              stroke-width: 11;
+              stroke-linecap: round;
+              stroke-miterlimit: 10;
+            }
+          }
+        }
+      }
+
+      p {
+        text-align: center;
+        color: #525252;
+        margin: 0;
+        line-height: 24px;
+        padding: 3px 0;
+      }
+
+    }
+
+    div.searchbox-wrapper {
+      height: 70px;
+
+      input[type=text] {
+        height: 49px;
+        margin: 10px 0;
+
+      }
+    }
   }
   
 }
