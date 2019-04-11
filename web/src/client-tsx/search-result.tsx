@@ -34,25 +34,22 @@ export class SearchResult extends React.Component<Props, State> {
       <div id='result-wrapper'>
         {(() => {
           if (perfectMatch !== null) {
-            return <div className='result-section' id='result-perfect-match'>
-              <div className='label'><span>完全一致</span></div>
-              <ul className="collection uk-list uk-list-striped">
+            return <div className='uk-card uk-card-body uk-card-default uk-margin-bottom'>
+              <h3 className="uk-card-title">完全一致</h3>
+              <ul className="collection uk-list uk-list-divider">
                 {perfectMatch}
               </ul>
             </div>
-
           }
         })()}
         {(() => {
           if (fuzzyMatchList.length !== 0) {
-            return <div className='result-section' id='result-fuzzy-match'>
-              <div className='uk-card uk-card-body uk-card-default'>
-                <h3 className="uk-card-title">もしかして：</h3>
+            return <div className='uk-card uk-card-body uk-card-default'>
+                <h3 className="uk-card-title">もしかして</h3>
                 <ul className="collection uk-list uk-list-divider">
                   {fuzzyMatchList}
                 </ul>
               </div>
-            </div>
           }
         })()}
       </div>

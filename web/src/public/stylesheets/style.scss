@@ -9,9 +9,6 @@ body {
     color: #00B7FF;
   }
 
-  div.result-section {
-    margin-top: 1.5em;
-  }
   div.content-wrapper {
     padding-bottom: 100px;
 
@@ -159,6 +156,38 @@ body {
         }
       }
     }
+
+    div#result-wrapper {
+      margin-top: 1.5em;
+
+      div.uk-card {
+        -webkit-animation : fly-in .3s ease both;
+        -moz-animation    : fly-in .3s ease both;
+        -o-animation      : fly-in .3s ease both;
+        animation         : fly-in .3s ease both;
+      }
+    }
   }
   
+}
+
+@-webkit-keyframes fly-in {
+  from {
+    -webkit-transform :translateY(15rem) rotate(15deg);
+    transform         :translateY(15rem) rotate(15deg);
+    opacity:0;
+  }
+}
+@-moz-keyframes fly-in {
+  from {
+    -moz-transform :translateY(15rem) rotate(15deg);
+    transform      :translateY(15rem) rotate(15deg);
+    opacity:0;
+  }
+}
+@keyframes fly-in {
+  from {
+    transform:translateY(15rem) rotate(15deg);
+    opacity:0;
+  }
 }
