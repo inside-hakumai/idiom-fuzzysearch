@@ -1,4 +1,3 @@
-import 'materialize-css';
 import 'whatwg-fetch';
 import Vivus from "vivus";
 import * as React from 'react';
@@ -8,9 +7,14 @@ import {SearchResult} from './search-result';
 import {ResultEntity} from "../server/database";
 
 import 'normalize.css';
+
+import UIkit from 'uikit';
+import Icons from 'uikit/dist/js/uikit-icons';
+import 'uikit/dist/css/uikit.css';
+import 'uikit/dist/js/uikit';
+UIkit.use(Icons);
+
 import "../public/stylesheets/style.scss";
-import 'materialize-css';
-import 'materialize-css/dist/css/materialize.min.css';
 
 const domRoot = document.querySelector("#root");
 
@@ -156,7 +160,10 @@ class Root extends React.Component<Props, State> {
           <p>「あの四字熟語、なんだったっけ・・・？」とお困りのあなたへ</p>
         </div>
         <div className="searchbox-wrapper">
-          <input type="text" value={this.state.queryValue} onChange={this.updateQueryValue} />
+          <div className="uk-inline uk-width-2-3">
+            <span className="uk-form-icon" uk-icon="icon: search" />
+            <input className="uk-input" type="text" value={this.state.queryValue} onChange={this.updateQueryValue} />
+          </div>
         </div>
         <SearchResult idioms={this.state.searchResult} />
       </div>

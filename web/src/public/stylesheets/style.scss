@@ -3,14 +3,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   width: 100%;
   height: 100%;
-  padding: calc((100vh - 400px)/2) 50px;
+  padding: calc((100vh - 400px)/2) 0;
 
   a {
     color: #00B7FF;
-  }
-
-  div.searchbox-wrapper > input[type="text"] {
-    background: #FFFFFF;
   }
 
   div.result-section {
@@ -153,10 +149,14 @@ body {
     div.searchbox-wrapper {
       height: 70px;
 
-      input[type=text] {
-        height: 49px;
-        margin: 10px 0;
+      div.uk-inline {
+        margin-left:16.66666%;
 
+        input[type=text] {
+          background: #FFFFFF;
+          height: 49px;
+          margin: 10px 0;
+        }
       }
     }
   }

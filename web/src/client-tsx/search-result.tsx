@@ -36,19 +36,22 @@ export class SearchResult extends React.Component<Props, State> {
           if (perfectMatch !== null) {
             return <div className='result-section' id='result-perfect-match'>
               <div className='label'><span>完全一致</span></div>
-              <ul className="collection">
+              <ul className="collection uk-list uk-list-striped">
                 {perfectMatch}
               </ul>
             </div>
+
           }
         })()}
         {(() => {
           if (fuzzyMatchList.length !== 0) {
             return <div className='result-section' id='result-fuzzy-match'>
-              <div className='label'><span>もしかして</span></div>
-              <ul className="collection">
-                {fuzzyMatchList}
-              </ul>
+              <div className='uk-card uk-card-body uk-card-default'>
+                <h3 className="uk-card-title">もしかして：</h3>
+                <ul className="collection uk-list uk-list-divider">
+                  {fuzzyMatchList}
+                </ul>
+              </div>
             </div>
           }
         })()}
