@@ -18,14 +18,14 @@ export class SearchResult extends React.Component<Props, State> {
     let fuzzyMatchList:JSX.Element[] = [];
     for (let i=0; i<this.props.idioms.length; i++) {
       let targetDom:JSX.Element = <li key={this.props.idioms[i].id} className="collection-item">
-        {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）- ({this.props.idioms[i].score})
+        {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）
       </li>;
 
       if (this.props.idioms[i].score === 100) {
         perfectMatch = targetDom;
       } else {
         fuzzyMatchList.push(<li key={this.props.idioms[i].id} className="collection-item">
-          {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）- ({this.props.idioms[i].score})
+          {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）
         </li>);
       }
     }
