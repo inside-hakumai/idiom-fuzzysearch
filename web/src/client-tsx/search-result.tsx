@@ -34,7 +34,7 @@ export class SearchResult extends React.Component<Props, State> {
       <div id='result-wrapper'>
         {(() => {
           if (perfectMatch !== null) {
-            return <div className='uk-card uk-card-body uk-card-default uk-margin-bottom'>
+            return <div className='uk-card uk-card-body uk-card-default uk-margin-top'>
               <h3 className="uk-card-title">完全一致</h3>
               <ul className="collection uk-list uk-list-divider">
                 {perfectMatch}
@@ -44,12 +44,14 @@ export class SearchResult extends React.Component<Props, State> {
         })()}
         {(() => {
           if (fuzzyMatchList.length !== 0) {
-            return <div className='uk-card uk-card-body uk-card-default'>
+            return <div className='uk-card uk-card-body uk-card-default uk-margin-top' style={{height: (112 + fuzzyMatchList.length * 42) + "px"}}>
                 <h3 className="uk-card-title">もしかして</h3>
                 <ul className="collection uk-list uk-list-divider">
                   {fuzzyMatchList}
                 </ul>
               </div>
+          } else {
+
           }
         })()}
       </div>
