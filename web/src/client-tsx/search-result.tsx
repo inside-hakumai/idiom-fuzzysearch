@@ -20,6 +20,7 @@ export class SearchResult extends React.Component<Props, State> {
     for (let i=0; i<this.props.idioms.length; i++) {
       let targetDom:JSX.Element = <li key={this.props.idioms[i].id} className="collection-item">
         {wrapMatchedCharsBySpan(this.props.idioms[i].name, this.props.query)}（{this.props.idioms[i].yomi}）
+        <a className="search-link uk-button uk-button-primary uk-button-small" href={"https://www.google.com/search?q=" + encodeURI(this.props.idioms[i].name)} target="_blank">この四字熟語について検索する</a>
       </li>;
 
       if (this.props.idioms[i].score === 100) {
@@ -27,6 +28,7 @@ export class SearchResult extends React.Component<Props, State> {
       } else {
         fuzzyMatchList.push(<li key={this.props.idioms[i].id} className="collection-item">
           {wrapMatchedCharsBySpan(this.props.idioms[i].name, this.props.query)}（{this.props.idioms[i].yomi}）
+          <a className="search-link uk-button uk-button-primary uk-button-small" href={"https://www.google.com/search?q=" + encodeURI(this.props.idioms[i].name)} target="_blank">この四字熟語について検索する</a>
         </li>);
       }
     }

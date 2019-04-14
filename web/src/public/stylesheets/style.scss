@@ -185,9 +185,34 @@ body {
         -o-transition:      height .2s ease;
         transition:         height .2s ease;
 
-        li.collection-item span.matched {
-          font-weight: bold;
-          color: #980000;
+        li.collection-item:nth-child(n+1),
+        li.collection-item:nth-child(n+2) {
+          position: relative;
+          margin-top: 0;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          padding-left: 5px;
+
+          span.matched {
+            font-weight: bold;
+            color: #980000;
+          }
+
+          a.search-link {
+            display: none;
+            position: absolute;
+            right: 5px;
+            bottom: 5px;
+          }
+
+          &:hover {
+            background: #e5e5e5;
+
+            a.search-link {
+              display: block;
+            }
+          }
+
         }
 
         &.out {
