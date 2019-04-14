@@ -9,7 +9,7 @@ class Index extends React.Component {
       </head>
       <body>
 
-      <div id="root" className="site-wrapper uk-container">
+      <div id="root" className="site-wrapper uk-container uk-container-small">
       </div>
       {/*
       <h1>{this.props.title}</h1>
