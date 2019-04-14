@@ -62,7 +62,7 @@ class Root extends React.Component<Props, State> {
   render() {
     return (
 
-      <div className="content-wrapper">
+      <div className={"content-wrapper " + (this.state.queryValue === "" ? "" : "queried")} >
         <div className="branding-wrapper">
           <div id="logo-wrapper">
 
