@@ -43,9 +43,10 @@ jobs:
     - run:
         name: install postgresql
         command: |
-          sudo apt-get update
-          sudo apt-get install postgresql -y
-          sudo apt-get clean
+          sudo sed -i '/jessie-backports/d' /etc/apt/sources.list
+          sudo sed -i '/jessie-updates/d' /etc/apt/sources.list
+          sudo apt update
+          sudo apt install postgresql -y
           sudo rm -rf /var/lib/apt/lists/*
 
     - run:
