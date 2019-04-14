@@ -3,4 +3,6 @@
 npm run server-ts-compile
 npm run webpack:production
 cp -r ./src/public/stylesheets ./dist/public/stylesheets
+cp -r ./src/public/icons ./dist/public/icons
 cp -r ./src/views ./dist/views
+cp -r ./src/public/images ./dist/public/images
