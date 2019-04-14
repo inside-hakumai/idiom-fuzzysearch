@@ -22,10 +22,12 @@ RUN npm set progress=false && \
     npm config set registry http://registry.npmjs.org/ && \
     yarn install && \
     yarn add webpack webpack-cli webpack-merge typescript ts-loader tsconfig-paths-webpack-plugin awesome-typescript-loader && \
-    yarn cache clean && \
-    apt-get update && \
-    apt-get install postgresql -y && \
-    apt-get clean && \
+    yarn cache clean
+
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list && \
+    apt update && \
+    apt upgrade -y && \
+    apt install postgresql -y && \
     rm -rf /var/lib/apt/lists/* && \
     bash ./bin/build-${env}
 

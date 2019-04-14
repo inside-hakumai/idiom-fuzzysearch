@@ -36,6 +36,21 @@ idiomDB.connect().then(async () => {
   app.use('/users', usersRouter);
   app.use('/search', searchRouter);
 
+  app.get('/favicon.ico', (req, res, next) => {
+    res.sendFile("favicon.ico", {
+      root: __dirname + '/public/icons',
+      dotfiles: 'deny'
+    }, (err) => {
+      if (err) next(err);
+    });
+  });
+  app.get('/favicon-32x32.png', (req, res) => {
+    res.sendFile("./public/icons/favicon-32x32.png");
+  });
+  // app.get('/favicon-16x16.png', (req, res) => {
+  //   res.sendFile("./public/icons/favicon-16x16.png");
+  // });
+
   // catch 404 and forward to error handler
   app.use((req: Request, res: Response, next: NextFunction) => {
     next(createError(404));
