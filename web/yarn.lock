@@ -3371,11 +3371,6 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-materialize-css@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-1.0.0.tgz#8d5db1c4a81c6d65f3b2e2ca83a8e08daa24d1be"
-  integrity sha512-4/oecXl8y/1i8RDZvyvwAICyqwNoKU4or5uf8uoAd74k76KzZ0Llym4zhJ5lLNUskcqjO0AuMcvNyDkpz8Z6zw==
-
 math-random@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/math-random/-/math-random-1.0.4.tgz#5dd6943c938548267016d4e34f057583080c514c"
@@ -5470,6 +5465,11 @@ typescript@^3.0.3:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.1.tgz#b6691be11a881ffa9a05765a205cb7383f3b63c6"
   integrity sha512-3NSMb2VzDQm8oBTLH6Nj55VVtUEpe/rgkIzMir0qVoLyjDZlnMBva0U6vDiV3IH+sl/Yu6oP5QwsAQtHPmDd2Q==
+
+uikit@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.0.3.tgz#ead1b0a152d2771d2684f60086766ccc50fa3450"
+  integrity sha512-Z73TXlnfJCAXczg5mFCZSTwR0Ii1wW2fZumfIR8G1x1x4SyKHpkU0JCZDoIryYFMu1gSpvy5hZiXk3t4i5tTlw==
 
 union-value@^1.0.0:
   version "1.0.0"
