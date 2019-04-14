@@ -28,8 +28,9 @@ RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://ar
     apt update && \
     apt upgrade -y && \
     apt install postgresql -y && \
-    rm -rf /var/lib/apt/lists/* && \
-    bash ./bin/build-${env}
+    rm -rf /var/lib/apt/lists/*
+
+RUN bash ./bin/build-${env}
 
 # production環境(heroku)では無視される
 EXPOSE 3000
