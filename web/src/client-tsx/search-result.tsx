@@ -3,6 +3,7 @@ import {ResultEntity} from "../server/database";
 
 interface Props {
   idioms: ResultEntity[]
+  query: String
 }
 
 interface State {}
@@ -18,14 +19,14 @@ export class SearchResult extends React.Component<Props, State> {
     let fuzzyMatchList:JSX.Element[] = [];
     for (let i=0; i<this.props.idioms.length; i++) {
       let targetDom:JSX.Element = <li key={this.props.idioms[i].id} className="collection-item">
-        {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）
+        {wrapMatchedCharsBySpan(this.props.idioms[i].name, this.props.query)}（{this.props.idioms[i].yomi}）
       </li>;
 
       if (this.props.idioms[i].score === 100) {
         perfectMatch = targetDom;
       } else {
         fuzzyMatchList.push(<li key={this.props.idioms[i].id} className="collection-item">
-          {this.props.idioms[i].name}（{this.props.idioms[i].yomi}）
+          {wrapMatchedCharsBySpan(this.props.idioms[i].name, this.props.query)}（{this.props.idioms[i].yomi}）
         </li>);
       }
     }
@@ -57,4 +58,12 @@ export class SearchResult extends React.Component<Props, State> {
       </div>
     );
   }
+}
+
+function wrapMatchedCharsBySpan(str: String, query: String) : JSX.Element[] {
+  let returnDom: JSX.Element[] = [];
+  for (let i = 0; i < str.length; i++) {
+    returnDom.push(<span className={(query.includes(str[i]) ? "matched" : "")}>{str[i]}</span>);
+  }
+  return returnDom
 }

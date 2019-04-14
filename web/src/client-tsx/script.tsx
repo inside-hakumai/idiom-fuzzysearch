@@ -165,7 +165,7 @@ class Root extends React.Component<Props, State> {
             <input className="uk-input" type="text" value={this.state.queryValue} onChange={this.updateQueryValue} />
           </div>
         </div>
-        <SearchResult idioms={this.state.searchResult} />
+        <SearchResult idioms={this.state.searchResult} query={this.state.queryValue}/>
       </div>
     );
   }

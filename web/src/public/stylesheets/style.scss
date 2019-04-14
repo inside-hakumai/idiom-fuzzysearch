@@ -185,6 +185,11 @@ body {
         -o-transition:      height .2s ease;
         transition:         height .2s ease;
 
+        li.collection-item span.matched {
+          font-weight: bold;
+          color: #980000;
+        }
+
         &.out {
           -webkit-animation : fly-out .3s ease both;
           -moz-animation    : fly-out .3s ease both;
