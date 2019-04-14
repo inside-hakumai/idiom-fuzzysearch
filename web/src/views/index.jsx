@@ -18,7 +18,12 @@ class Index extends React.Component {
         <title>四字熟語あいまい検索.net</title>
       </head>
       <body>
-
+      <a id="github-link" href="https://github.com/inside-hakumai/idiom-fuzzysearch" target="_blank">
+        <img width="149" height="149"
+             src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149"
+             className="attachment-full size-full" alt="Fork me on GitHub"
+             data-recalc-dims="1" />
+        </a>
       <div id="root" className="site-wrapper uk-container uk-container-small">
       </div>
       {/*
