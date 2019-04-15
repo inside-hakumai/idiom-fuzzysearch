@@ -162,7 +162,7 @@ class Root extends React.Component<Props, State> {
         <div className="searchbox-wrapper">
           <div className="uk-inline uk-width-2-3">
             <span className="uk-form-icon" uk-icon="icon: search" />
-            <input className="uk-input" type="text" value={this.state.queryValue} onChange={this.updateQueryValue} />
+            <input className="uk-input" placeholder="四字熟語を検索" type="text" value={this.state.queryValue} onChange={this.updateQueryValue} />
           </div>
         </div>
         <SearchResult idioms={this.state.searchResult} query={this.state.queryValue}/>
